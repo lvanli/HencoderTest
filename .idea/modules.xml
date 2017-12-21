@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HencoderTest.iml" filepath="$PROJECT_DIR$/HencoderTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw1/PracticeDraw1.iml" filepath="$PROJECT_DIR$/PracticeDraw1/PracticeDraw1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw2/PracticeDraw2.iml" filepath="$PROJECT_DIR$/PracticeDraw2/PracticeDraw2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw3/PracticeDraw3.iml" filepath="$PROJECT_DIR$/PracticeDraw3/PracticeDraw3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw4/PracticeDraw4.iml" filepath="$PROJECT_DIR$/PracticeDraw4/PracticeDraw4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw5/PracticeDraw5.iml" filepath="$PROJECT_DIR$/PracticeDraw5/PracticeDraw5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw6/PracticeDraw6.iml" filepath="$PROJECT_DIR$/PracticeDraw6/PracticeDraw6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDraw7/PracticeDraw7.iml" filepath="$PROJECT_DIR$/PracticeDraw7/PracticeDraw7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeDrawMock/PracticeDrawMock.iml" filepath="$PROJECT_DIR$/PracticeDrawMock/PracticeDrawMock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>

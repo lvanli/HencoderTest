@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hencoder.hencoderpracticedrawmock.mock.firework.FireworkLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hencoder.hencoderpracticedrawmock.mock.firework.FireworkView
+        android:id="@+id/firework_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/firework_button"
+        android:text="开始"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</com.hencoder.hencoderpracticedrawmock.mock.firework.FireworkLayout>

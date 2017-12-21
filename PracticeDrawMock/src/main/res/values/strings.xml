@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HenCoder 模仿</string>
+    <string name="title_mock_praise">点赞</string>
+    <string name="title_mock_tape">卷尺</string>
+    <string name="title_mock_firework">转圈</string>
+    <string name="title_mock_flipboard">Flipboard</string>
+    <string name="animate">animate</string>
+</resources>

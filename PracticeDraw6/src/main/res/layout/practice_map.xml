@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hencoder.hencoderpracticedraw6.practice.practice09.Practice09Map xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hencoder.hencoderpracticedraw6.practice.practice09.Practice09MapView
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/animateBt"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:text="@string/animate"
+        android:textSize="16sp" />
+</com.hencoder.hencoderpracticedraw6.practice.practice09.Practice09Map>

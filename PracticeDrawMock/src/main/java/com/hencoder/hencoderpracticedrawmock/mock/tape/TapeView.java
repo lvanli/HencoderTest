@@ -25,12 +25,14 @@ public class TapeView extends View {
     private int mMaxWeight = 2000;
     private int mMinWeight = 0;
     private int width, height;
-    private float mXOffset = 0;
+    private int mXOffset = 0;
     private int mTapeSpace = 20;
     private int mTextSize = 0;
     private int mMiddleLength = 65;
     private int mLongLength = 60;
     private int mShortLength = 40;
+    private int mAnimatorBeginOffset = 0;
+    private float mScrollBeginOffset = 0;
 
     private ObjectAnimator flipAnimator;
     private ObjectAnimator finalAnimator;
@@ -102,8 +104,8 @@ public class TapeView extends View {
         paint.setStrokeWidth(2);
         int rightNumber = (mWeight + 10 - mWeight % 10);
         int leftNumber = rightNumber;
-        int beginOffset = (int) mXOffset % mTapeSpace + width / 2;
-        int rCount = (int) mXOffset / mTapeSpace + mWeight % 10;
+        int beginOffset = mXOffset % mTapeSpace + width / 2;
+        int rCount = mXOffset / mTapeSpace + mWeight % 10;
         int lCount = rCount;
         //LogUtil.d("rCount="+rCount+",lCount="+lCount+",beginOff="+beginOffset);
         for (int offset = 0; beginOffset - offset > 0; offset += mTapeSpace) {
@@ -144,9 +146,9 @@ public class TapeView extends View {
         return true;
     }
 
-    private void setMXOffset(float offset) {
-        mXOffset = offset - (int) offset / mTapeSpace * mTapeSpace;
-        mWeight = mWeight - (int) offset / mTapeSpace;
+    private void setMXOffset(int offset) {
+        mXOffset = offset - offset / mTapeSpace * mTapeSpace;
+        mWeight = mWeight - offset / mTapeSpace;
         if (mWeight >= mMaxWeight) {
             mWeight = mMaxWeight;
             if (mXOffset < 0)
@@ -156,22 +158,20 @@ public class TapeView extends View {
             if (mXOffset > 0)
                 mXOffset = 0;
         }
-        //LogUtil.d("offset="+offset+","+"mX="+mXOffset+",mWeight="+mWeight);
+ //       LogUtil.d("offset="+offset+","+"mX="+mXOffset+",mWeight="+mWeight);
         invalidate();
     }
 
-    private float mAnimatorBeginOffset = 0;
-
-    public void setXOffset(float offset) {
+    public void setXOffset(int offset) {
         setMXOffset(mXOffset + offset - mAnimatorBeginOffset);
         mAnimatorBeginOffset = offset;
         //LogUtil.d("offset="+offset+","+"mX="+mXOffset+",mWeight="+mWeight);
     }
 
-    private void startAnimator(float begin, float end) {
-        flipAnimator = ObjectAnimator.ofFloat(this, "xOffset", begin, end);
+    private void startAnimator(int begin, int end) {
+        flipAnimator = ObjectAnimator.ofInt(this, "xOffset", begin, end);
         flipAnimator.setInterpolator(new DecelerateInterpolator());
-        flipAnimator.setDuration(Math.abs((int) (end - begin) / mTapeSpace * 30));
+        flipAnimator.setDuration(Math.abs((end - begin) / mTapeSpace * 30));
         flipAnimator.addListener(listener);
         flipAnimator.start();
     }
@@ -179,11 +179,11 @@ public class TapeView extends View {
     private void startFinalAnimator() {
         mAnimatorBeginOffset = 0;
         if (mXOffset <= 0.5 * mTapeSpace && mXOffset >= -0.5 * mTapeSpace)
-            finalAnimator = ObjectAnimator.ofFloat(this, "xOffset", 0, -mXOffset);
+            finalAnimator = ObjectAnimator.ofInt(this, "xOffset", 0, -mXOffset);
         else if (mXOffset < 0)
-            finalAnimator = ObjectAnimator.ofFloat(this, "xOffset", 0, -mTapeSpace - mXOffset);
+            finalAnimator = ObjectAnimator.ofInt(this, "xOffset", 0, -mTapeSpace - mXOffset);
         else
-            finalAnimator = ObjectAnimator.ofFloat(this, "xOffset", 0, mTapeSpace - mXOffset);
+            finalAnimator = ObjectAnimator.ofInt(this, "xOffset", 0, mTapeSpace - mXOffset);
         finalAnimator.setInterpolator(new DecelerateInterpolator());
         finalAnimator.start();
 
@@ -221,6 +221,7 @@ public class TapeView extends View {
                 finalAnimator.cancel();
                 finalAnimator = null;
             }
+            mScrollBeginOffset = mXOffset;
             return true;
         }
 
@@ -237,7 +238,8 @@ public class TapeView extends View {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             LogUtil.d("distanceX=" + distanceX);
-            setMXOffset(mXOffset - distanceX);
+            mScrollBeginOffset -= distanceX;
+            setXOffset((int)(mScrollBeginOffset + 0.0001));
             return true;
         }
 
@@ -250,7 +252,7 @@ public class TapeView extends View {
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             LogUtil.d("offset=" + mXOffset + ",velocity=" + velocityX);
             mAnimatorBeginOffset = mXOffset;
-            startAnimator(mXOffset, velocityX / 5);
+            startAnimator(mXOffset, (int)(velocityX / 5));
             return true;
         }
     });

@@ -15,8 +15,11 @@ HenCoder 练习项目集合
 5、 [HenCoder Android 开发进阶：UI 1-5 绘制顺序](http://hencoder.com/ui-1-5)    [github链接](https://github.com/hencoder/PracticeDraw5)  
 6、 [HenCoder Android 开发进阶：UI 1-6 属性动画（上手篇）](http://hencoder.com/ui-1-6)    [github链接](https://github.com/hencoder/PracticeDraw6)  
 7、 [HenCoder Android 开发进阶：UI 1-7 属性动画（进阶篇）](http://hencoder.com/ui-1-7)    [github链接](https://github.com/hencoder/PracticeDraw7)  
-8、 [HenCoder 仿写酷界面](http://hencoder.com/activity-mock-1/)  
+8、 [HenCoder 仿写酷界面](http://hencoder.com/activity-mock-1/)
+9、 [HenCoder Android UI 部分 2-1 布局基础](http://hencoder.com/ui-2-1/)    [github链接](https://github.com/hencoder/PracticeLayout1)
+10、[HenCoder Android UI 部分 2-2 全新定义 View 的尺寸](http://hencoder.com/ui-2-2/)    目前没有练习项目
 
+注：从第二部分开始 gradle 版本变为了 3.0.1，所以要求 Android Studio 的版本也必须在 3.0 以上
 里面每一个我都已经做好了，仅供参考，也欢迎大家指出问题。  
 仿写酷界面的预览如下：  
 1、即刻的点赞效果：  

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add("PracticeDraw6");
         mData.add("PracticeDraw7");
         mData.add("PracticeDrawMock");
+        mData.add("PracticeLayout1");
         mList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mData));
     }
 
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 7:
                 startActivity(new Intent(this, com.hencoder.hencoderpracticedrawmock.MainActivity.class));
+                break;
+            case 8:
+                startActivity(new Intent(this, com.hencoder.hencoderpracticelayout1.MainActivity.class));
                 break;
         }
     }
